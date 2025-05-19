@@ -4,6 +4,7 @@ import React from "react";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import Image from "next/image";
+import "./login.css";
 
 interface LoginData {
   email: string;
@@ -24,33 +25,17 @@ export default function Login() {
   };
 
   return (
-    <div style={{ display: "flex", minHeight: "100vh", position: "relative" }}>
+    <div className="login-container">
       {/* LOGO */}
       <Image
         src="/logo_sandora.png"
         alt="Logo Sandora"
         width={120}
         height={40}
-        style={{
-          position: "absolute",
-          top: "1.5rem",
-          left: "2rem",
-          zIndex: 10,
-        }}
+        className="logo"
       />
       {/* Lado esquerdo */}
-      <div
-        style={{
-          flex: 1,
-          backgroundColor: "white",
-          padding: "4rem",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          gap: "1rem",
-          fontFamily: "'Inter', sans-serif",
-        }}
-      >
+      <div className="left-side">
         <h2 style={{ color: 'black', fontWeight: "bold", fontSize: "4rem" }}>
           Bem-vindo(a) de volta!
         </h2>
@@ -58,31 +43,8 @@ export default function Login() {
       </div>
 
       {/* Lado direito */}
-      <div
-        style={{
-          flex: 1,
-          backgroundColor: "#7B2FF7",
-          color: "white",
-          padding: "3rem",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          fontFamily: "'Inter', sans-serif",
-        }}
-      >
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          style={{
-            backgroundColor: "white",
-            borderRadius: "8px",
-            padding: "2rem",
-            color: "#333",
-            width: "100%",
-            maxWidth: "400px",
-            boxShadow: "0 4px 8px rgb(0 0 0 / 0.1)",
-          }}
-          noValidate
-        >
+      <div className="right-side">
+        <form onSubmit={handleSubmit(onSubmit)} noValidate>
           <h3 style={{ marginBottom: "1.5rem", fontWeight: "bold" }}>Login</h3>
 
           <label>
@@ -93,7 +55,7 @@ export default function Login() {
               {...register("email", { required: "Email é obrigatório" })}
               style={{ width: "100%", padding: "0.5rem", marginTop: "0.25rem", marginBottom: "0.5rem" }}
             />
-            <p style={{ color: "red", fontSize: "0.8rem" }}>{errors.email?.message}</p>
+            {errors.email && <p className="error" style={{ color: "red", fontSize: "0.8rem" }}>{errors.email.message}</p>}
           </label>
 
           <label>
@@ -104,7 +66,7 @@ export default function Login() {
               {...register("senha", { required: "Senha é obrigatória" })}
               style={{ width: "100%", padding: "0.5rem", marginTop: "0.25rem", marginBottom: "0.5rem" }}
             />
-            <p style={{ color: "red", fontSize: "0.8rem" }}>{errors.senha?.message}</p>
+            {errors.senha && <p className="error" style={{ color: "red", fontSize: "0.8rem" }}>{errors.senha.message}</p>}
           </label>
 
           <a
