@@ -7,6 +7,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import "./cadastro.css";
 
 interface FormData {
   nomeCompleto: string;
@@ -44,79 +45,60 @@ export default function Cadastro() {
   const [isPrivacyModalOpen, setIsPrivacyModalOpen] = useState(false);
 
   return (
-    <div style={{ display: "flex", minHeight: "100vh", position: "relative" }}>
-      {/* LOGO */}
+    <div className="cadastro-container">
       <Image
+        className="logo"
         src="/logo_sandora.png"
         alt="Logo Sandora"
         width={120}
         height={40}
-        style={{
-          position: "absolute",
-          top: "1.5rem",
-          left: "2rem",
-          zIndex: 10,
-        }}
       />
 
-      {/* Lado esquerdo */}
-      <div
-        style={{
-          flex: 1,
-          backgroundColor: "white",
-          padding: "4rem",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          gap: "1rem",
-          fontFamily: "'Inter', sans-serif",
-        }}
-      >
-        <h2 style={{ fontWeight: 'bold', fontSize: '4rem' }}>
+      <div className="left-side">
+        <h2 style={{ 
+          fontWeight: 'bold', 
+          fontSize: '2rem',
+          lineHeight: '1.2'
+        }}>
           <span style={{ color: 'black'}}>Crie sua conta e comece a </span>
           <span style={{ color: '#7B2FF7' }}>aprender</span>
         </h2>
-        <p style={{ fontSize: '1rem' }}>
+        <p style={{ fontSize: '1rem', maxWidth: '400px', margin: '0 auto' }}>
           <span style={{ color: 'black' }}>Crie sua conta em poucos segundos</span>
           <span style={{ color: '#7B2FF7' }}> e comece sua jornada de aprendizado.</span>
         </p>
       </div>
 
-      {/* Lado direito */}
-      <div
-        style={{
-          flex: 1,
-          backgroundColor: "#7B2FF7",
-          color: "white",
-          padding: "3rem",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          fontFamily: "'Inter', sans-serif",
+      <div className="right-side">
+        <form onSubmit={handleSubmit(onSubmit)} style={{
+          backgroundColor: "white",
+          borderRadius: "8px",
+          padding: "1.5rem",
+          color: "#333",
+          width: "100%",
+          maxWidth: "400px",
+          boxShadow: "0 4px 8px rgb(0 0 0 / 0.1)",
+          margin: "0 auto"
         }}
-      >
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          style={{
-            backgroundColor: "white",
-            borderRadius: "8px",
-            padding: "2rem",
-            color: "#333",
-            width: "100%",
-            maxWidth: "400px",
-            boxShadow: "0 4px 8px rgb(0 0 0 / 0.1)",
-          }}
           noValidate
         >
           <h3 style={{ marginBottom: "1.5rem", fontWeight: "bold" }}>Cadastro</h3>
 
-          <label>
+          <label style={{ display: 'block', marginBottom: '0.5rem' }}>
             Nome Completo
             <input
               type="text"
               placeholder="Como você será identificado na plataforma."
               {...register("nomeCompleto")}
-              style={{ width: "100%", padding: "0.5rem", marginTop: "0.25rem", marginBottom: "0.5rem" }}
+              style={{ 
+                width: "100%", 
+                padding: "0.75rem",
+                marginTop: "0.25rem",
+                marginBottom: "0.5rem",
+                borderRadius: "4px",
+                border: "1px solid #ddd",
+                fontSize: "0.95rem"
+              }}
             />
             <p style={{ color: "red", fontSize: "0.8rem" }}>{errors.nomeCompleto?.message}</p>
           </label>
@@ -167,13 +149,12 @@ export default function Cadastro() {
 
           <p style={{ fontSize: "0.7rem", marginTop: "0.5rem" }}>
             Ao criar sua conta, você concorda com nossos{" "}
-            <a href="#" style={{ color: "#7B2FblaF7" }} onClick={(e) => {
+            <a href="#" style={{ color: "#7B2FF7" }} onClick={(e) => {
               e.preventDefault();
               setIsTermsModalOpen(true);
             }}>
-              Termos de Uso
+              Termos de Uso e
             </a>{" "}
-            e{" "}
             <a href="#" style={{ color: "#7B2FF7" }} onClick={(e) => {
               e.preventDefault();
               setIsPrivacyModalOpen(true);
@@ -195,6 +176,14 @@ export default function Cadastro() {
               fontWeight: "bold",
               marginTop: "1rem",
               cursor: "pointer",
+              fontSize: "1rem",
+              transition: "background-color 0.3s ease"
+            }}
+            onMouseOver={(e) => {
+              (e.target as HTMLButtonElement).style.backgroundColor = "#6624e0";
+            }}
+            onMouseOut={(e) => {
+              (e.target as HTMLButtonElement).style.backgroundColor = "#7B2FF7";
             }}
           >
             CRIAR CONTA

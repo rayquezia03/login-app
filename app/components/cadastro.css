@@ -1,0 +1,149 @@
+.cadastro-container {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+}
+
+.logo {
+  position: absolute;
+  top: 1.5rem;
+  left: 2rem;
+  z-index: 10;
+}
+
+.left-side {
+  flex: 1;
+  background-color: white;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  font-family: 'Inter', sans-serif;
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+}
+
+.left-side h2 {
+  color: black;
+  font-weight: bold;
+  font-size: 4rem;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.left-side h2 span {
+  display: inline;
+}
+
+.left-side h2 span:first-child {
+  color: black;
+}
+
+.left-side h2 span:last-child {
+  color: #7B2FF7;
+}
+
+.left-side p {
+  color: black;
+  font-size: 1rem;
+  margin: 0;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.left-side p span:first-child {
+  color: black;
+}
+
+.left-side p span:last-child {
+  color: #7B2FF7;
+}
+
+.right-side {
+  flex: 1;
+  background-color: #7B2FF7;
+  color: white;
+  padding: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+}
+
+.right-side form {
+  background-color: white;
+  border-radius: 8px;
+  padding: 2rem;
+  color: #333;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
+}
+
+.right-side form h3 {
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.right-side form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.right-side form input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.right-side form button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #7B2FF7;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.right-side form button:hover {
+  background-color: #6626e0;
+}
+
+.right-side form .error {
+  color: red;
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .cadastro-container {
+    flex-direction: column;
+  }
+
+  .left-side {
+    padding: 2rem;
+  }
+
+  .right-side {
+    padding: 2rem;
+  }
+
+  .left-side h2 {
+    font-size: 2.5rem;
+  }
+
+  .right-side form {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
