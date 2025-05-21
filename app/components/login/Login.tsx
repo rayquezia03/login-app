@@ -26,7 +26,6 @@ export default function Login() {
 
   return (
     <div className="login-container">
-      {/* LOGO */}
       <Image
         src="/logo_sandora.png"
         alt="Logo Sandora"
@@ -34,13 +33,12 @@ export default function Login() {
         height={40}
         className="logo"
       />
-      {/* Lado esquerdo */}
-      <div className="left-side">
-        <h2 className="login-title">Bem-vindo(a) de volta!</h2>
-        <p className="login-subtitle">Faça login com seu e-mail para acessar seus cursos.</p>
-      </div>
-
-      {/* Lado direito */}
+    <div className="left-side">
+      <h2 className="login-title">Bem-vindo(a) de volta!</h2>
+        <p className="login-subtitle">
+          Faça login com seu e-mail para acessar seus cursos.
+        </p>
+    </div>
       <div className="right-side">
         <form onSubmit={handleSubmit(onSubmit)} noValidate>
           <h3 style={{ marginBottom: "1.5rem", fontWeight: "bold" }}>Login</h3>
