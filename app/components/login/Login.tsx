@@ -36,10 +36,8 @@ export default function Login() {
       />
       {/* Lado esquerdo */}
       <div className="left-side">
-        <h2 style={{ color: 'black', fontWeight: "bold", fontSize: "4rem" }}>
-          Bem-vindo(a) de volta!
-        </h2>
-        <p style={{ color: 'black', fontSize: "1rem" }}>Faça login com seu e-mail para acessar seus cursos.</p>
+        <h2 className="login-title">Bem-vindo(a) de volta!</h2>
+        <p className="login-subtitle">Faça login com seu e-mail para acessar seus cursos.</p>
       </div>
 
       {/* Lado direito */}
@@ -53,7 +51,7 @@ export default function Login() {
               type="email"
               placeholder="Insira seu email cadastrado"
               {...register("email", { required: "Email é obrigatório" })}
-              style={{ width: "100%", padding: "0.5rem", marginTop: "0.25rem", marginBottom: "0.5rem" }}
+              className="login-input"
             />
             {errors.email && <p className="error" style={{ color: "red", fontSize: "0.8rem" }}>{errors.email.message}</p>}
           </label>
@@ -64,43 +62,27 @@ export default function Login() {
               type="password"
               placeholder="Insira sua senha"
               {...register("senha", { required: "Senha é obrigatória" })}
-              style={{ width: "100%", padding: "0.5rem", marginTop: "0.25rem", marginBottom: "0.5rem" }}
+              className="login-input"
             />
             {errors.senha && <p className="error" style={{ color: "red", fontSize: "0.8rem" }}>{errors.senha.message}</p>}
           </label>
 
           <a
             href="#"
-            style={{ fontSize: "0.8rem", color: "#7B2FF7", display: "inline-block", marginBottom: "1rem" }}
+            className="forgot-password"
           >
             Esqueci minha senha
           </a>
 
           <button
             type="submit"
-            style={{
-              backgroundColor: "#7B2FF7",
-              color: "white",
-              width: "100%",
-              padding: "0.75rem",
-              border: "none",
-              borderRadius: "4px",
-              fontWeight: "bold",
-              cursor: "pointer",
-            }}
+            className="login-button"
           >
             FAZER LOGIN
           </button>
 
           <p style={{ marginTop: "1rem", fontSize: "0.85rem", textAlign: "center" }}>
-            Não possui conta?{" "}
-            <button
-              type="button"
-              onClick={() => router.push("/cadastro")}
-              style={{ color: "#7B2FF7", background: "none", border: "none", cursor: "pointer", padding: 0 }}
-            >
-              Cadastre-se
-            </button>
+            Não possui conta? <a href="/cadastro" style={{ color: "#7B2FF7", textDecoration: "none" }}>Cadastre-se</a>
           </p>
         </form>
       </div>

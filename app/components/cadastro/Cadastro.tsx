@@ -190,14 +190,7 @@ export default function Cadastro() {
           </button>
 
           <p style={{ marginTop: "1rem", fontSize: "0.85rem", textAlign: "center" }}>
-            Já tem uma conta?{" "}
-            <button
-              type="button"
-              onClick={() => router.push("/login")}
-              style={{ color: "#7B2FF7", background: "none", border: "none", cursor: "pointer", padding: 0 }}
-            >
-              Entrar
-            </button>
+            Já tem uma conta? <a href="/login" style={{ color: "#7B2FF7", textDecoration: "none" }}>Entrar</a>
           </p>
         </form>
       </div>
