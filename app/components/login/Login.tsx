@@ -4,7 +4,7 @@ import React from "react";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import Image from "next/image";
-import "./login.css";
+import "../styles/login.css";
 
 interface LoginData {
   email: string;

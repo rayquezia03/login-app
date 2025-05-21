@@ -7,7 +7,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import "./cadastro.css";
+import "../styles/cadastro.css";
 
 interface FormData {
   nomeCompleto: string;
